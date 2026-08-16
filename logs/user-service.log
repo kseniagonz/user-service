@@ -1,0 +1,76 @@
+2026-08-16 18:43:50.131 [main] INFO  org.example.util.HibernateUtil - Инициализация Hibernate SessionFactory...
+2026-08-16 18:43:50.224 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-08-16 18:43:50.604 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-16 18:43:50.755 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-08-16 18:43:50.759 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2026-08-16 18:43:50.759 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/userdb]
+2026-08-16 18:43:50.759 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=postgres, password=****}
+2026-08-16 18:43:50.760 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-08-16 18:43:50.762 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 5 (min=1)
+2026-08-16 18:43:51.043 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-16 18:43:52.067 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-16 18:43:52.092 [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3caee3a8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-08-16 18:43:52.144 [main] INFO  org.example.Main - Запуск приложения user-service
+2026-08-16 18:45:43.122 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23505
+2026-08-16 18:45:43.122 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uk_6dotkott2kjsp8vw4d0m25fb7"
+  Подробности: Ключ "(email)=(kuku@example.com)" уже существует.
+2026-08-16 18:45:43.125 [main] ERROR org.example.Main - Непредвиденная ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@5df64b2a is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:273) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:290) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.example.dao.UserDaoImpl.rollbackSafely(UserDaoImpl.java:110) ~[classes/:?]
+	at org.example.dao.UserDaoImpl.save(UserDaoImpl.java:34) ~[classes/:?]
+	at org.example.service.UserService.createUser(UserService.java:20) ~[classes/:?]
+	at org.example.Main.createUser(Main.java:73) ~[classes/:?]
+	at org.example.Main.main(Main.java:30) [classes/:?]
+2026-08-16 18:47:44.882 [main] INFO  org.example.dao.UserDaoImpl - Пользователь обновлён: User{id=3, name='Pupa', email='pupa@example.com', age=25, createdAt=2026-08-16T16:56:24.369973}
+2026-08-16 18:48:54.383 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23505
+2026-08-16 18:48:54.384 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uk_6dotkott2kjsp8vw4d0m25fb7"
+  Подробности: Ключ "(email)=(pupa@example.com)" уже существует.
+2026-08-16 18:48:54.385 [main] ERROR org.example.Main - Непредвиденная ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@4b3ad7ca is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:273) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:290) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.example.dao.UserDaoImpl.rollbackSafely(UserDaoImpl.java:110) ~[classes/:?]
+	at org.example.dao.UserDaoImpl.save(UserDaoImpl.java:34) ~[classes/:?]
+	at org.example.service.UserService.createUser(UserService.java:20) ~[classes/:?]
+	at org.example.Main.createUser(Main.java:73) ~[classes/:?]
+	at org.example.Main.main(Main.java:30) [classes/:?]
+2026-08-16 18:49:52.259 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23505
+2026-08-16 18:49:52.259 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "uk_6dotkott2kjsp8vw4d0m25fb7"
+  Подробности: Ключ "(email)=(kuku@example.com)" уже существует.
+2026-08-16 18:49:52.260 [main] ERROR org.example.Main - Непредвиденная ошибка
+java.lang.IllegalStateException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@194b9783 is closed
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:37) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:273) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:290) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:142) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.example.dao.UserDaoImpl.rollbackSafely(UserDaoImpl.java:110) ~[classes/:?]
+	at org.example.dao.UserDaoImpl.save(UserDaoImpl.java:34) ~[classes/:?]
+	at org.example.service.UserService.createUser(UserService.java:20) ~[classes/:?]
+	at org.example.Main.createUser(Main.java:73) ~[classes/:?]
+	at org.example.Main.main(Main.java:30) [classes/:?]
+2026-08-16 18:50:43.442 [main] INFO  org.example.dao.UserDaoImpl - Пользователь создан: User{id=7, name='try', email='try@example.com', age=41, createdAt=2026-08-16T18:50:43.421175200}
+2026-08-16 18:52:02.608 [main] INFO  org.example.util.HibernateUtil - Инициализация Hibernate SessionFactory...
+2026-08-16 18:52:02.705 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-08-16 18:52:02.968 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-16 18:52:03.112 [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-08-16 18:52:03.115 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+2026-08-16 18:52:03.115 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/userdb]
+2026-08-16 18:52:03.115 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=postgres, password=****}
+2026-08-16 18:52:03.115 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2026-08-16 18:52:03.117 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001115: Connection pool size: 5 (min=1)
+2026-08-16 18:52:03.369 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-16 18:52:04.364 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-16 18:52:04.386 [main] INFO  org.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@69a40b3c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-08-16 18:52:04.430 [main] INFO  org.example.Main - Запуск приложения user-service
