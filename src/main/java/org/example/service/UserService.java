@@ -10,7 +10,15 @@ import java.util.Optional;
 
 public class UserService {
 
-    private final UserDao userDao = new UserDaoImpl();
+    private final UserDao userDao;
+
+    public UserService() {
+        this(new UserDaoImpl());
+    }
+
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public User createUser(String name, String email, Integer age) {
         validateName(name);

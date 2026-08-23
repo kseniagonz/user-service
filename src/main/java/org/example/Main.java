@@ -33,13 +33,13 @@ public class Main {
                     case "4" -> updateUser();
                     case "5" -> deleteUser();
                     case "0" -> running = false;
-                    default -> System.out.println("Неверный пункт меню, попробуйте ещё раз.");
+                    default -> System.out.println("Неизвестный пункт меню, попробуйте ещё раз.");
                 }
             } catch (UserServiceException e) {
                 System.out.println("Ошибка: " + e.getMessage());
             } catch (Exception e) {
                 logger.error("Непредвиденная ошибка", e);
-                System.out.println("Произошла непредвиденная ошибка.");
+                System.out.println("Произошла непредвиденная ошибка. Подробности в логе.");
             }
         }
 
